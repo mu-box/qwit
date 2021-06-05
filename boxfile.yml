@@ -1,0 +1,10 @@
+run.config:
+  # elixir runtime
+  engine: elixir
+  engine.config:
+    runtime: elixir-1.9
+    erlang_runtime: erlang-22
+
+# add postgres as a data component
+data.db:
+  image: nanobox/postgresql:9.6
