@@ -1,0 +1,55 @@
+name: Elixir CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    name: Build and test
+    runs-on: ubuntu-latest
+
+    services:
+      db:
+        image: postgres:11
+        ports: ['5432:5432']
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: gonano
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Elixir
+      uses: erlef/setup-beam@v1
+      with:
+        elixir-version: '1.9.4' # Define the elixir version [required]
+        otp-version: '22.1' # Define the OTP version [required]
+    - name: Restore dependencies cache
+      uses: actions/cache@v2
+      with:
+        path: deps
+        key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
+        restore-keys: ${{ runner.os }}-mix-
+    - name: Install dependencies
+      run: mix deps.get
+    - name: Run migrations
+      env:
+        DATA_DB_HOST: localhost
+        DATA_DB_USER: postgres
+        DATA_DB_PASS: postgres
+        MIX_ENV: test
+      run: mix ecto.migrate
+    - name: Run tests
+      env:
+        DATA_DB_HOST: localhost
+        DATA_DB_USER: postgres
+        DATA_DB_PASS: postgres
+      run: mix test

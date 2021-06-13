@@ -21,7 +21,13 @@ flexibility, so that's how we approach the architecture.
 
 ## Installation
 
-Coming soon...
+Add QWIT to your `mix.exs` with your other `deps`:
+
+```elixir
+{:qwit, "~> 0.1.0"},
+```
+
+Then, as usual, `mix deps.get` and you'll be set! Nothing to configure, here.
 
 ## Usage
 
@@ -121,4 +127,5 @@ build your own. Don't forget to tell QWIT where to look for your backend!
 
 To submit feedback, please use the project's
 [GitHub Issues](https://github.com/mu-box/qwit/issues). Unless the feedback is a
-security issue; in that case, email [Dan](dan.hunsaker+qwit@gmail.com) directly.
+security issue; in that case, email [Dan](mailto:dan.hunsaker+qwit@gmail.com)
+directly.
