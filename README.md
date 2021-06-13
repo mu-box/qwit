@@ -1,5 +1,12 @@
 # Queued Workflows In Transactions
 
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/mu-box/qwit/Elixir%20CI)
+![Hex.pm](https://img.shields.io/hexpm/l/qwit)
+![Hex.pm](https://img.shields.io/hexpm/v/qwit)
+![Hex.pm](https://img.shields.io/hexpm/dt/qwit)
+![Discord](https://img.shields.io/discord/610589644651888651)
+![GitHub Sponsors](https://img.shields.io/github/sponsors/mu-box)
+
 Microbox QWIT is a library for building workflows out of queued worker jobs, and
 running them as transactions. When errors happen, the entire workflow gets
 rewound, exactly like a failed database transaction.
