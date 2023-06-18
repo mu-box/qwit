@@ -44,7 +44,7 @@ defmodule QWIT.MixProject do
   defp package do
     [
       files: ["lib", "mix.exs", "README*", "LICENSE*"],
-      maintainers: ["Dan Hunsaker", "Microbox Team"],
+      maintainers: ["Hennik Hunsaker", "Microbox Team"],
       licenses: ["MIT"],
       links: %{"GitHub" => "https://github.com/mu-box/qwit"}
     ]

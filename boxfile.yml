@@ -7,4 +7,4 @@ run.config:
 
 # add postgres as a data component
 data.db:
-  image: nanobox/postgresql:9.6
+  image: mubox/postgresql:9.6
